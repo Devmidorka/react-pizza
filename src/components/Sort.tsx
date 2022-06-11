@@ -1,14 +1,25 @@
-import React from 'react';
+import React, {FC, useState} from 'react';
 
-const Sort = () => {
+const Sort:FC = () => {
+    const [isOpened, setIsOpened] = useState(false)
+    const [active, setActive] = useState(0);
+    const sortNames = ['популярности', 'цене', 'алфавиту'];
+    const activeName = sortNames[active]
     return (
-        <div className='sort'>
-            Сортировка по: <span>популярности</span>
-            <div className="popup">
-                <p className='active'>популярности</p>
-                <p>цене</p>
-                <p>алфавиту</p>
-            </div>
+        <div className='sort' onClick={() => setIsOpened(!isOpened)}>
+            Сортировка по: <span>{activeName}</span>
+            {isOpened &&
+                <div className="popup">
+                    {sortNames.map((name, index) => (
+                        <p
+                            key={index}
+                            className={activeName === name ? 'active' : ''}
+                            onClick={() => setActive(index)}
+                        >{name}</p>
+                    ))}
+                </div>
+            }
+
         </div>
     );
 };
