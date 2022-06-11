@@ -1,10 +1,10 @@
-import React, {FC} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 
 import List from "../components/List";
 import Category from "../components/Category";
 import {ICategory} from "../types/Category";
 import Product from "../components/Product";
-import {ProductProps} from "../types/Product";
+import {IProduct} from "../types/Product";
 import Sort from "../components/Sort";
 import NavBar from "../components/NavBar";
 
@@ -36,91 +36,14 @@ const Catalog:FC = () => {
             title: 'Закрытые'
         },
     ]
-
-    const products: ProductProps[] = [
-        {
-            id:0,
-            img: 'chisburger-pizza.png',
-            title: 'Чизбургер-пицца',
-            price: 395,
-            count: 2,
-            filters:{
-                thin: true,
-                small:true
-            }
-        },
-        {
-            id:1,
-            img: 'cheese-pizza.png',
-            title: 'Сырная',
-            price: 450,
-            filters:{
-                thin: true,
-                small: true,
-            }
-        },
-        {
-            id:2,
-            img: 'shrimps-pizza.png',
-            title: 'Креветки по-азиатски',
-            price: 290,
-            filters:{
-                thin: true,
-                medium: true,
-            }
-        },
-        {
-            id:3,
-            img: 'chick-pizza.png',
-            title: 'Сырный цыпленок',
-            price: 385,
-            filters:{
-                thin: true,
-                small: true,
-            }
-        },
-        {
-            id:4,
-            img: 'chisburger-pizza.png',
-            title: 'Чизбургер-пицца',
-            price: 395,
-            count: 2,
-            filters:{
-                thin: true,
-                small:true
-            }
-        },
-        {
-            id:5,
-            img: 'cheese-pizza.png',
-            title: 'Сырная',
-            price: 450,
-            filters:{
-                thin: true,
-                small: true,
-            }
-        },
-        {
-            id:6,
-            img: 'shrimps-pizza.png',
-            title: 'Креветки по-азиатски',
-            price: 290,
-            filters:{
-                thin: true,
-                medium: true,
-            }
-        },
-        {
-            id:7,
-            img: 'chick-pizza.png',
-            title: 'Сырный цыпленок',
-            price: 385,
-            filters:{
-                thin: true,
-                small: true,
-            }
-        }
-    ]
+    const [products, setProducts] = useState([]);
+    useEffect(() => {
+        fetch('https://629a62d46f8c03a978557b33.mockapi.io/api/products').then(response => {
+            return response.json();
+        }).then(data => {
+            setProducts(data)
+        })
+    }, [])
 
     return (
         <div className='catalog'>
@@ -141,7 +64,7 @@ const Catalog:FC = () => {
             <div className="catalog-list">
                 <List
                     items={products}
-                    renderItem={(product:ProductProps) =>
+                    renderItem={(product:IProduct) =>
                         <Product key={product.id} {...product}/>
                     }
                 />
