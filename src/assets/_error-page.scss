@@ -1,0 +1,40 @@
+@import 'variables';
+
+.error-page{
+  margin:0 auto;
+  height:calc(100vh - 124px - 131px);
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  img{
+    width: 32px;
+    height: 32px;
+    display:block;
+  }
+  &>div{
+    display:flex;
+    justify-content:center;
+    @media(max-width:463px){
+      flex-direction: column;
+      align-items:center;
+    }
+  }
+  h5{
+    font-family: $main-font;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+    color: $text-primary-color;
+    text-align:center;
+    margin-left: 20px;
+  }
+  p{
+    text-align:center;
+    font-family: $main-font;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+    color: #777777;
+    margin-top: 10px;
+  }
+}
