@@ -2,24 +2,44 @@ import React, {FC} from 'react';
 
 import List from "../components/List";
 import Category from "../components/Category";
-import {CategoryProps} from "../types/Category";
+import {ICategory} from "../types/Category";
 import Product from "../components/Product";
 import {ProductProps} from "../types/Product";
 import Sort from "../components/Sort";
 import NavBar from "../components/NavBar";
 
 const Catalog:FC = () => {
-    const categories: CategoryProps[] = [
-        {title: 'Все'},
-        {title: 'Мясные'},
-        {title: 'Вегетарианская'},
-        {title: 'Гриль'},
-        {title: 'Острые'},
-        {title: 'Закрытые'},
+    const categories: ICategory[] = [
+        {
+            id:0,
+            title: 'Все'
+        },
+        {
+            id:1,
+            title: 'Мясные'
+        },
+        {
+            id:2,
+            title: 'Вегетарианская'
+        },
+        {
+            id:3,
+            title: 'Гриль'
+        },
+        {
+            id:4,
+
+            title: 'Острые'
+        },
+        {
+            id: 5,
+            title: 'Закрытые'
+        },
     ]
 
     const products: ProductProps[] = [
         {
+            id:0,
             img: 'chisburger-pizza.png',
             title: 'Чизбургер-пицца',
             price: 395,
@@ -30,6 +50,7 @@ const Catalog:FC = () => {
             }
         },
         {
+            id:1,
             img: 'cheese-pizza.png',
             title: 'Сырная',
             price: 450,
@@ -39,6 +60,7 @@ const Catalog:FC = () => {
             }
         },
         {
+            id:2,
             img: 'shrimps-pizza.png',
             title: 'Креветки по-азиатски',
             price: 290,
@@ -48,6 +70,7 @@ const Catalog:FC = () => {
             }
         },
         {
+            id:3,
             img: 'chick-pizza.png',
             title: 'Сырный цыпленок',
             price: 385,
@@ -57,6 +80,7 @@ const Catalog:FC = () => {
             }
         },
         {
+            id:4,
             img: 'chisburger-pizza.png',
             title: 'Чизбургер-пицца',
             price: 395,
@@ -67,6 +91,7 @@ const Catalog:FC = () => {
             }
         },
         {
+            id:5,
             img: 'cheese-pizza.png',
             title: 'Сырная',
             price: 450,
@@ -76,6 +101,7 @@ const Catalog:FC = () => {
             }
         },
         {
+            id:6,
             img: 'shrimps-pizza.png',
             title: 'Креветки по-азиатски',
             price: 290,
@@ -85,6 +111,7 @@ const Catalog:FC = () => {
             }
         },
         {
+            id:7,
             img: 'chick-pizza.png',
             title: 'Сырный цыпленок',
             price: 385,
@@ -103,7 +130,7 @@ const Catalog:FC = () => {
                 <div className='categories'>
                     <List
                         items={categories}
-                        renderItem={(category: CategoryProps) => <Category title={category.title}/>}
+                        renderItem={(category: ICategory) => <Category key={category.id} title={category.title}/>}
                     />
                 </div>
                 <Sort/>
@@ -115,7 +142,7 @@ const Catalog:FC = () => {
                 <List
                     items={products}
                     renderItem={(product:ProductProps) =>
-                        <Product {...product}/>
+                        <Product key={product.id} {...product}/>
                     }
                 />
             </div>
