@@ -9,7 +9,7 @@ import {Link} from "react-router-dom";
 const NavBar: FC<NavBarProps> = ({isCartPage}) => {
     return (
         <div className="navbar">
-            <Link to={'/'}>
+            <Link to='/'>
                 <div className='navbar-left'>
                     <img src={logo} alt=""/>
                     <div className="logo-info">
@@ -19,16 +19,19 @@ const NavBar: FC<NavBarProps> = ({isCartPage}) => {
                 </div>
             </Link>
             {!isCartPage &&
-                <Button
-                    type={ButtonType.HALF_BUTTON}
-                    leftContent={'520P'}
-                    rightContent={
-                        <div className='cart-info'>
-                            <CartLogo color={'white'} width={'16px'} height={'16px'}/>
-                            <span>3</span>
-                        </div>
-                    }
-                />
+                <Link to={'/cart'}>
+                    <Button
+                        type={ButtonType.HALF_BUTTON}
+                        leftContent={'520P'}
+                        rightContent={
+                            <div className='cart-info'>
+                                <CartLogo color={'white'} width={'16px'} height={'16px'}/>
+                                <span>3</span>
+                            </div>
+                        }
+                    />
+                </Link>
+
             }
 
         </div>

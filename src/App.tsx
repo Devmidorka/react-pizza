@@ -5,7 +5,7 @@ import Catalog from "./pages/Catalog";
 import Error from './pages/Error'
 const App:FC = () => {
     return (
-        <div className='app'>
+        <div className='app container'>
             <BrowserRouter>
                 <Routes>
                     <Route path={'/'} element={<Catalog/>}/>

@@ -10,6 +10,11 @@
   align-items:center;
   cursor:pointer;
   position:relative;
+  white-space:nowrap;
+  @media(max-width:1200px){
+    justify-content:center;
+    margin-bottom: 20px;
+  }
   &:before{
     content: '';
     display:inline-block;

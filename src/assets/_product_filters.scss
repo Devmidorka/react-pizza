@@ -35,5 +35,8 @@
     &.filter-large{
       grid-column: span 3;
     }
+    @media(max-width:350px){
+      font-size:11px;
+    }
   }
 }

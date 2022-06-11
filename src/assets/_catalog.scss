@@ -11,9 +11,15 @@
     margin-top: 32px;
   }
   .catalog-list{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content: space-between;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items:center;
+    @media(max-width:991px){
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media(max-width:768px){
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
   .category-button{
     margin-right:9px;
@@ -21,5 +27,15 @@
   .control_panel{
     display:flex;
     justify-content:space-between;
+    @media(max-width:1200px){
+      flex-direction:column-reverse;
+    }
+    .categories{
+      @media(max-width:1200px){
+        width:100%;
+        overflow-x:scroll;
+        display:flex;
+      }
+    }
   }
 }

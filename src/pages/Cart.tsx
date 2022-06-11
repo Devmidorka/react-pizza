@@ -8,13 +8,14 @@ import CartTopBar from "../components/CartTopBar";
 import CartProduct from "../components/CartProduct";
 import CartBottomBar from "../components/CartBottomBar";
 import {CartProps} from "../types/Cart";
+import {Link} from "react-router-dom";
 
 const Cart:FC<CartProps> = ({products}) => {
     return (
         <>
             <NavBar isCartPage={true}/>
             <div className="cart-wrapper">
-                {products.length === 0 ?
+                {products.length == 0 ?
                     <>
                         <h3 className='empty-cart-title'>Корзина пустая <img src={smile} alt=""/></h3>
                         <p className="empty-cart-description">
@@ -22,7 +23,9 @@ const Cart:FC<CartProps> = ({products}) => {
                             Для того, чтобы заказать пиццу, перейди на главную страницу.
                         </p>
                         <img src={empty_logo} alt="" className='empty-logo'/>
-                        <Button type={ButtonType.BLACK_BUTTON}>Вернуться назад</Button>
+                        <Link to={'/'}>
+                            <Button type={ButtonType.BLACK_BUTTON}>Вернуться назад</Button>
+                        </Link>
                     </>
                     :
                     <>

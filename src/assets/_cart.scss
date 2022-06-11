@@ -2,13 +2,28 @@
 .cart-wrapper{
   width:65%;
   margin:0 auto;
+  a{
+    text-decoration: none;
+  }
   .cart-top-bar{
     background-color:white;
     display:flex;
     justify-content:space-between;
+    svg{
+      @media(max-width:300px){
+        display:none;
+      }
+    }
+    @media(max-width:768px){
+      flex-direction:column;
+      align-items:center;
+    }
     div{
       display:flex;
       align-items: center;
+      @media(max-width:768px){
+        width:100%;
+      }
     }
 
     p{
@@ -30,10 +45,19 @@
     }
   }
   .cart-bottom-bar{
+    .orange-button{
+      @media(max-width:768px){
+        margin-top: 20px;
+      }
+    }
     &>div{
       display:flex;
       justify-content:space-between;
       margin-top: 40px;
+      @media(max-width:768px){
+        flex-direction:column;
+        align-items:center;
+      }
     }
     button{
       max-width:211px;
@@ -44,6 +68,9 @@
       font-size: 22px;
       line-height: 27px;
       color: $text-primary-color;
+      @media(max-width:768px){
+        text-align:center;
+      }
       span{
         font-weight: 700;
       }
@@ -54,6 +81,10 @@
       font-size: 22px;
       line-height: 27px;
       color: $text-primary-color;
+      @media(max-width:768px){
+        margin-top: 20px;
+        text-align:center;
+      }
       span{
         font-weight:700;
         color: $text-secondary-color;
@@ -77,6 +108,10 @@
         align-items: center;
         .info{
           margin-left: 15px;
+          @media(max-width:768px){
+            text-align:center;
+            margin-left:0;
+          }
           .title{
             font-family: $main-font;
             font-weight: 700;
@@ -92,10 +127,20 @@
             color: #8D8D8D;
           }
         }
+        @media(max-width:768px){
+          flex-direction:column;
+        }
       }
       .control{
         display:flex;
         align-items: center;
+        @media(max-width:991px){
+          width:100%;
+          justify-content:center;
+        }
+        @media(max-width:768px){
+          margin-top:20px;
+        }
         span{
           margin:0 12px;
           font-family: $main-font;
@@ -105,13 +150,27 @@
           color: $text-primary-color;
         }
       }
+      .delete-button{
+        @media(max-width:991px){
+          margin-top: 10px;
+        }
+      }
       .price{
         font-family:  $main-font;
         font-weight: 700;
         font-size: 22px;
         line-height: 27px;
         color: $text-primary-color;
+        @media(max-width:991px){
+          margin-top:10px;
+        }
 
+
+      }
+
+      @media(max-width:991px){
+          flex-direction:column;
+          position:relative;
       }
     }
   }
@@ -137,9 +196,18 @@
     height: 255px;
     display:block;
     margin: 47px auto 0;
+    @media(max-width:512px){
+      width:100%;
+      height:auto;
+    }
   }
   .black-button{
     margin: 74px auto 0;
     display:block;
+    text-align:center;
+
+    @media(max-width:360px){
+      width:100%;
+    }
   }
 }

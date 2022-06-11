@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from "./UI/Button";
 import {ButtonType} from "../types/Button";
+import {Link} from "react-router-dom";
 
 const CartBottomBar = () => {
     return (
@@ -10,7 +11,9 @@ const CartBottomBar = () => {
                 <p className='cart-product-price'>Сумма заказа: <span>900 ₽</span></p>
             </div>
             <div>
-                <Button type={ButtonType.SHADOW_BUTTON}>Вернуться назад </Button>
+                <Link to={'/'}>
+                    <Button type={ButtonType.SHADOW_BUTTON}>Вернуться назад </Button>
+                </Link>
                 <Button type={ButtonType.ORANGE_BUTTON}>Оплатить сейчас</Button>
             </div>
         </div>
