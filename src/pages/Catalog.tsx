@@ -7,8 +7,10 @@ import Product from "../components/Product";
 import {IProduct} from "../types/Product";
 import Sort from "../components/Sort";
 import NavBar from "../components/NavBar";
+import ProductSkeleton from "../components/ProductSkeleton";
 
 const Catalog:FC = () => {
+
     const categories: ICategory[] = [
         {
             id:0,
@@ -36,7 +38,9 @@ const Catalog:FC = () => {
             title: 'Закрытые'
         },
     ]
+
     const [products, setProducts] = useState([]);
+
     useEffect(() => {
         fetch('https://629a62d46f8c03a978557b33.mockapi.io/api/products').then(response => {
             return response.json();
@@ -48,7 +52,6 @@ const Catalog:FC = () => {
     return (
         <div className='catalog'>
             <NavBar/>
-
             <div className='control_panel'>
                 <div className='categories'>
                     <List
@@ -58,18 +61,19 @@ const Catalog:FC = () => {
                 </div>
                 <Sort/>
             </div>
-
             <p className='catalog-title'>Все пиццы</p>
-
             <div className="catalog-list">
-                <List
-                    items={products}
-                    renderItem={(product:IProduct) =>
-                        <Product key={product.id} {...product}/>
-                    }
-                />
+                {products.length > 0 ?
+                    <List
+                        items={products}
+                        renderItem={(product:IProduct) =>
+                            <Product key={product.id} {...product}/>
+                        }
+                    />
+                    :
+                    [...new Array(6)].map(digit =>  <ProductSkeleton key={digit}/>)
+                }
             </div>
-
         </div>
     );
 };
