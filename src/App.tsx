@@ -1,10 +1,10 @@
 import React, {FC} from 'react';
-import Catalog from "./pages/Catalog";
+import Cart from "./pages/Cart";
 
 const App:FC = () => {
     return (
         <div className='app'>
-            <Catalog/>
+            <Cart products={[]}/>
         </div>
     );
 };

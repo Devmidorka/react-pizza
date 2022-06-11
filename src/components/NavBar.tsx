@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {FC} from 'react';
 import Button from "./UI/Button";
 import {ButtonType} from "../types/Button";
 import CartLogo from "./CartLogo";
 import logo from '../assets/logo.png'
-const NavBar = () => {
+import {NavBarProps} from "../types/NavBar";
+
+const NavBar:FC<NavBarProps> = ({isCartPage}) => {
     return (
         <div className="navbar">
             <div>
@@ -13,16 +15,19 @@ const NavBar = () => {
                     <p>самая вкусная пицца во вселенной</p>
                 </div>
             </div>
-            <Button
-                type={ButtonType.HALF_BUTTON}
-                leftContent={'520P'}
-                rightContent={
-                    <div className='cart-info'>
-                        <CartLogo/>
-                        <span>3</span>
-                    </div>
-                }
-            />
+            {!isCartPage &&
+                <Button
+                    type={ButtonType.HALF_BUTTON}
+                    leftContent={'520P'}
+                    rightContent={
+                        <div className='cart-info'>
+                            <CartLogo color={'white'} width={'16px'} height={'16px'}/>
+                            <span>3</span>
+                        </div>
+                    }
+                />
+            }
+
         </div>
     );
 };

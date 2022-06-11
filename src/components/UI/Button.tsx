@@ -17,6 +17,12 @@ const Button: FC<ButtonProps> = (
             case ButtonType.ADD: return 'add-button'
             case ButtonType.CATEGORY: return 'category-button'
             case ButtonType.HALF_BUTTON: return 'half-button'
+            case ButtonType.ORANGE_BUTTON: return 'orange-button'
+            case ButtonType.SHADOW_BUTTON: return 'shadow-button'
+            case ButtonType.DELETE_BUTTON: return 'delete-button'
+            case ButtonType.PLUS_BUTTON: return 'plus-button'
+            case ButtonType.MINUS_BUTTON: return 'minus-button'
+            case ButtonType.BLACK_BUTTON: return 'black-button'
             default: return ''
         }
     }

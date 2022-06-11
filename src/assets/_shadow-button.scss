@@ -1,0 +1,29 @@
+@import 'variables';
+@import 'button';
+.shadow-button{
+  @extend %button;
+  background: #FFFFFF;
+  border: 1px solid #D3D3D3;
+  padding:15px 27px;
+  text-align: center;
+  font-weight: 400;
+  color: #CACACA;
+  display: flex;
+  align-items: center;
+
+  &:hover{
+    cursor:pointer;
+  }
+  &:before{
+    content: '';
+    display:inline-block;
+    width: 7px;
+    height: 7px;
+    margin-bottom: 2px;
+    border-left: 1.5px solid #D3D3D3;
+    border-top: 1.5px solid #D3D3D3;
+    transform: rotate(-45deg);
+    margin-right:7px;
+  }
+
+}

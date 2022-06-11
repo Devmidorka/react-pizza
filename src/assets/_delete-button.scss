@@ -1,0 +1,23 @@
+@import 'variables';
+@import 'button';
+
+.delete-button{
+  @extend %button;
+  width: 32px;
+  height: 32px;
+  border-radius:50%;
+  border: 2px solid #D0D0D0;
+  background-color: white;
+  position:relative;
+
+  &:before{
+    content:'+';
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    font-size: 20px;
+    color:#D0D0D0;
+
+  }
+}

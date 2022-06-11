@@ -1,0 +1,10 @@
+@import 'button';
+
+.black-button{
+  @extend %button;
+  padding:15px 27px;
+  color:white;
+  background-color: black;
+  border:none;
+  cursor:pointer;
+}
