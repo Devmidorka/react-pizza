@@ -1,0 +1,39 @@
+.product-filters{
+  width:100%;
+  background: #F3F3F3;
+  border-radius: 10px;
+  display:grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 1fr 1fr;
+
+
+  span{
+    height: 32px;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    border-radius: 5px;
+    margin: 7px 6px;
+    font-family: $main-font;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.015em;
+    color: #2C2C2C;
+    background-color:inherit;
+    opacity: .2;
+
+    &.active{
+      background: #FFFFFF;
+      opacity:1;
+    }
+
+    &.filter-small{
+      grid-column: span 2;
+    }
+    &.filter-large{
+      grid-column: span 3;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+@import 'variables';
+
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom: 81px;
+  &>div{
+    display:flex;
+    align-items:end;
+    img{
+      width:38px;
+      height:38px;
+    }
+  }
+  .logo-info{
+    margin-left: 17px;
+    h1{
+      font-family: $main-font;
+      font-weight: 800;
+      font-size: 24px;
+      line-height: 29px;
+      text-transform: uppercase;
+      color: $text-primary-color;
+    }
+    p{
+      font-family: $main-font;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+      color: #7B7B7B;
+    }
+  }
+  .half-button{
+    width: 150px;
+    height: 50px;
+  }
+  .cart-info{
+    display:flex;
+    align-items:center;
+    span{
+      margin-left: 8px;
+      font-family:$main-font;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+      color: white;
+    }
+  }
+}

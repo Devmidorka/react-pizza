@@ -1,0 +1,10 @@
+@import 'variables';
+
+%button{
+  border-radius: $button-radius;
+  transition: $main-transition;
+  font-size:$button-font-size;
+  font-weight: $button-font-weight;
+  line-height: $button-line-height;
+  font-family: $main-font;
+}

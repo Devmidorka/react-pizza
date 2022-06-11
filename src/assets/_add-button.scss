@@ -1,0 +1,46 @@
+@import 'button';
+@import 'variables';
+
+.add-button {
+  @extend %button;
+
+  color: $text-secondary-color;
+  padding: $add-button-padding;
+  border: 1px solid $text-secondary-color;
+  background-color: $add-button-background-color;
+  font-size: $button-font-size;
+  font-weight: $button-font-weight;
+  line-height: $button-line-height;
+
+  .plus {
+    margin-right: 7px;
+  }
+
+  .count {
+    width: 22px;
+    height: 22px;
+    background-color: $add-button-hover-background-color;
+    display: inline-block;
+    border-radius: 50%;
+    line-height: 22px;
+    text-align: center;
+    color: $add-button-hover-text-color;
+    font-size: 13px;
+    font-weight: 700;
+    margin-left: 10px;
+    font-family: $main-font;
+    transition: $main-transition;
+
+  }
+
+  &:hover {
+    background-color: $add-button-hover-background-color;
+    color: $add-button-hover-text-color;
+    cursor: pointer;
+  }
+
+  &:hover .count {
+    background-color: $add-button-background-color;
+    color:$add-button-hover-background-color;
+  }
+}

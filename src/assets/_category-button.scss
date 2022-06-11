@@ -1,0 +1,13 @@
+@import 'button';
+
+.category-button{
+  @extend %button;
+  padding:15px 27px;
+  color:$category-button-text-color;
+  background-color: $category-button-background-color;
+  border:none;
+  &:hover{
+    color: $category-button-hover-text-color;
+    background-color: $category-button-hover-background-color;
+  }
+}

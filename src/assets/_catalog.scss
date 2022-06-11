@@ -1,0 +1,25 @@
+@import 'variables';
+
+.catalog{
+  .catalog-title{
+    font-family: $main-font;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+    letter-spacing: 0.01em;
+    color: $text-primary-color;
+    margin-top: 32px;
+  }
+  .catalog-list{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+  }
+  .category-button{
+    margin-right:9px;
+  }
+  .control_panel{
+    display:flex;
+    justify-content:space-between;
+  }
+}

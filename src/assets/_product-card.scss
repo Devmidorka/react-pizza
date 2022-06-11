@@ -1,0 +1,41 @@
+@import 'variables';
+.product-card{
+  width:280px;
+  height:459px;
+  display:flex;
+  margin-top: 60px;
+  flex-direction: column;
+  justify-content: space-between;
+  .product-image{
+    display: block;
+    margin:0 auto;
+  }
+  .product-title{
+    font-family: $main-font;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: $text-primary-color;
+  }
+
+  .product-info{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    .product-title{
+      font-family: $main-font;
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 27px;
+      letter-spacing: 0.015em;
+      color: $text-primary-color;
+    }
+    .price{
+      font-family: $main-font;
+      font-weight: 700;
+      font-size: 22px;
+      color: $text-primary-color;
+    }
+  }
+}
