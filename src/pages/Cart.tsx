@@ -19,8 +19,8 @@ const Cart:FC<CartProps> = ({products}) => {
                     <>
                         <h3 className='empty-cart-title'>Корзина пустая <img src={smile} alt=""/></h3>
                         <p className="empty-cart-description">
-                            Вероятней всего, вы не заказывали ещё пиццу.
-                            Для того, чтобы заказать пиццу, перейди на главную страницу.
+                            Вероятней всего, вы енё не заказывали пиццу.
+                            Для того, чтобы заказать пиццу, перейдите на главную страницу.
                         </p>
                         <img src={empty_logo} alt="" className='empty-logo'/>
                         <Link to={'/'}>
