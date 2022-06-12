@@ -1,0 +1,22 @@
+.text-with-smile{
+  display:flex;
+  justify-content:center;
+  @media(max-width:463px){
+    flex-direction: column;
+    align-items:center;
+  }
+  img{
+    width: 32px;
+    height: 32px;
+    display:block;
+  }
+  h5{
+    font-family: $main-font;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+    color: $text-primary-color;
+    text-align:center;
+    margin-left: 20px;
+  }
+}

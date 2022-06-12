@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC, useEffect} from 'react';
 
 import List from "../components/List";
 import Category from "../components/Category";
@@ -8,28 +8,31 @@ import {IProduct} from "../types/Product";
 import Sort from "../components/Sort";
 import NavBar from "../components/NavBar";
 import ProductSkeleton from "../components/ProductSkeleton";
+import {useAppDispatch, useAppSelector} from "../hooks/redux";
+import {fetchProducts} from "../redux/asyncActions/Products";
+import TextWithSmile from '../components/TextWithSmile';
 
-const Catalog:FC = () => {
+const Catalog: FC = () => {
 
     const categories: ICategory[] = [
         {
-            id:0,
+            id: 0,
             title: 'Все'
         },
         {
-            id:1,
+            id: 1,
             title: 'Мясные'
         },
         {
-            id:2,
+            id: 2,
             title: 'Вегетарианская'
         },
         {
-            id:3,
+            id: 3,
             title: 'Гриль'
         },
         {
-            id:4,
+            id: 4,
 
             title: 'Острые'
         },
@@ -38,15 +41,11 @@ const Catalog:FC = () => {
             title: 'Закрытые'
         },
     ]
-
-    const [products, setProducts] = useState([]);
+    const {products, error, fetching} = useAppSelector(state => state.productReducer)
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
-        fetch('https://629a62d46f8c03a978557b33.mockapi.io/api/products').then(response => {
-            return response.json();
-        }).then(data => {
-            setProducts(data)
-        })
+        dispatch(fetchProducts())
     }, [])
 
     return (
@@ -63,16 +62,21 @@ const Catalog:FC = () => {
             </div>
             <p className='catalog-title'>Все пиццы</p>
             <div className="catalog-list">
-                {products.length > 0 ?
-                    <List
-                        items={products}
-                        renderItem={(product:IProduct) =>
-                            <Product key={product.id} {...product}/>
-                        }
-                    />
+                {error ?
+                    <TextWithSmile text={'Упс!!! Произошла ошибка'}/>
                     :
-                    [...new Array(6)].map(digit =>  <ProductSkeleton key={digit}/>)
+                    fetching ?
+                        [...new Array(6)].map(digit => <ProductSkeleton key={digit}/>)
+                        :
+                        <List
+                            items={products}
+                            renderItem={(product: IProduct) =>
+                                <Product key={product.id} {...product}/>
+                            }
+                        />
+
                 }
+
             </div>
         </div>
     );

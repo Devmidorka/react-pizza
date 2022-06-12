@@ -15,7 +15,7 @@ const Cart:FC<CartProps> = ({products}) => {
         <>
             <NavBar isCartPage={true}/>
             <div className="cart-wrapper">
-                {products.length == 0 ?
+                {products.length === 0 ?
                     <>
                         <h3 className='empty-cart-title'>Корзина пустая <img src={smile} alt=""/></h3>
                         <p className="empty-cart-description">

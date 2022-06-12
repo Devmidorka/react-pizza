@@ -1,17 +1,14 @@
 import React from 'react';
-import smile from '../assets/smile.svg'
 import NavBar from "../components/NavBar";
+import TextWithSmile from "../components/TextWithSmile";
 
 const Error = () => {
     return (
         <>
             <NavBar/>
             <div className='error-page'>
-                <div>
-                    <img src={smile} alt=""/>
-                    <h5>Ничего не найдено</h5>
-                </div>
-                <p>К сожалению, данная странциа отсутствует в нашел интернет-магазине</p>
+                <TextWithSmile text={'Ничего не найдено'}/>
+                <p>К сожалению, данная страница отсутствует в нашел интернет-магазине</p>
             </div>
         </>
 

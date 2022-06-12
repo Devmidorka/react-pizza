@@ -6,28 +6,6 @@
   display:flex;
   flex-direction: column;
   justify-content: center;
-  img{
-    width: 32px;
-    height: 32px;
-    display:block;
-  }
-  &>div{
-    display:flex;
-    justify-content:center;
-    @media(max-width:463px){
-      flex-direction: column;
-      align-items:center;
-    }
-  }
-  h5{
-    font-family: $main-font;
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 39px;
-    color: $text-primary-color;
-    text-align:center;
-    margin-left: 20px;
-  }
   p{
     text-align:center;
     font-family: $main-font;
