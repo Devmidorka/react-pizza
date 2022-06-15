@@ -5,3 +5,4 @@ export interface productState{
     fetching: boolean,
     error: string | null
 }
+

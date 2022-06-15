@@ -9,7 +9,7 @@ const initialState:productState = {
     error: null
 }
 
-const todoSlice = createSlice({
+const productSlice = createSlice({
     name: 'todo',
     initialState,
     reducers: {
@@ -29,6 +29,6 @@ const todoSlice = createSlice({
 
 })
 
-export const {productsFetching, productsFetchingError, productsFetchingSuccess} = todoSlice.actions
+export const {productsFetching, productsFetchingError, productsFetchingSuccess} = productSlice.actions
 
-export default todoSlice.reducer
+export default productSlice.reducer

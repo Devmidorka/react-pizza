@@ -1,21 +1,33 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
+import {useAppDispatch, useAppSelector} from "../hooks/redux";
+import {setActive} from "../redux/reducers/sortSlice";
+import {fetchProducts} from "../redux/asyncActions/Products";
 
 const Sort:FC = () => {
     const [isOpened, setIsOpened] = useState(false)
-    const [active, setActive] = useState(0);
-    const sortNames = ['популярности', 'цене', 'алфавиту'];
-    const activeName = sortNames[active]
+
+    const active = useAppSelector(state => state.sortSlice.active)
+    const sortArray = useAppSelector(state => state.sortSlice.sortArray)
+
+    const activeSort = sortArray[active]
+
+    const dispatch = useAppDispatch()
+    useEffect(() => {
+        dispatch(fetchProducts(activeSort.name))
+    }, [active])
     return (
         <div className='sort' onClick={() => setIsOpened(!isOpened)}>
-            Сортировка по: <span>{activeName}</span>
+            Сортировка по: <span>{activeSort.title}</span>
             {isOpened &&
                 <div className="popup">
-                    {sortNames.map((name, index) => (
+                    {sortArray.map((sort, index) => (
                         <p
                             key={index}
-                            className={activeName === name ? 'active' : ''}
-                            onClick={() => setActive(index)}
-                        >{name}</p>
+                            className={activeSort.id === index ? 'active' : ''}
+                            onClick={() => {
+                                dispatch(setActive(index))
+                            }}
+                        >{sort.title}</p>
                     ))}
                 </div>
             }

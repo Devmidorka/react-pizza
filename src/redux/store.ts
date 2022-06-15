@@ -1,8 +1,12 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import productReducer from "./reducers/productSlice";
+import sortSlice from "./reducers/sortSlice";
+import categorySlice from "./reducers/categorySlice";
 
 const rootReducer = combineReducers({
     productReducer,
+    sortSlice,
+    categorySlice
 })
 
 export const store = configureStore({
