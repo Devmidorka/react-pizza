@@ -1,16 +1,15 @@
 import React, {FC} from 'react';
-import {ProductFiltersProps} from "../types/ProductFilters";
+import {ProductFiltersProps, ProductSizes} from "../types/ProductFilters";
 
-const ProductFilters:FC<ProductFiltersProps> = () => {
-
-
+const ProductFilters:FC<ProductFiltersProps> = ({types, sizes}) => {
+    console.log(sizes.includes(ProductSizes.medium))
     return (
         <div className='product-filters'>
-            <span className={`filter-large`}>тонкое</span>
-            <span className={`filter-large`}>традиционное</span>
-            <span className={`filter-small`}>26см.</span>
-            <span className={`filter-small`}>30см.</span>
-            <span className={`filter-small`}>40см.</span>
+            <span className={`filter-large ${types.includes(0) ? 'active' : ''}`}>тонкое</span>
+            <span className={`filter-large ${types.includes(1) ? 'active' : ''}`}>традиционное</span>
+            <span className={`filter-small ${sizes.includes(ProductSizes.small) ? 'active' : ''}`}>26см.</span>
+            <span className={`filter-small ${sizes.includes(ProductSizes.medium) ? 'active' : ''}`}>30см.</span>
+            <span className={`filter-small ${sizes.includes(ProductSizes.medium) ? 'active' : ''}`}>40см.</span>
         </div>
     );
 };

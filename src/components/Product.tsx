@@ -9,8 +9,9 @@ const Product: FC<ProductProps> = (
         imageUrl,
         title,
         price,
-        count
-
+        count,
+        types,
+        sizes
     }
     ) => {
     return (
@@ -18,7 +19,7 @@ const Product: FC<ProductProps> = (
             <img src={`${imageUrl}`} alt="" className='product-image'/>
             <p className='product-title'>{title}</p>
 
-            <ProductFilters/>
+            <ProductFilters types={types} sizes={sizes}/>
 
             <div className="product-info">
                 <p className="price">от {price} ₽</p>
