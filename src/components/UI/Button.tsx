@@ -9,7 +9,8 @@ const Button: FC<ButtonProps> = (
         onClick,
         count,
         leftContent,
-        rightContent
+        rightContent,
+        ...props
     }) => {
 
     function getClassByType(type:ButtonType):string {
@@ -31,6 +32,7 @@ const Button: FC<ButtonProps> = (
         <button
             className={ [className, getClassByType(type)].join(' ')}
             onClick = {onClick}
+            {...props}
         >
             {type === ButtonType.ADD &&
                 <span className='plus'>+</span>

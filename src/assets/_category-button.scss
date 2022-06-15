@@ -6,7 +6,7 @@
   color:$category-button-text-color;
   background-color: $category-button-background-color;
   border:none;
-  &:hover{
+  &.active{
     color: $category-button-hover-text-color;
     background-color: $category-button-hover-background-color;
   }

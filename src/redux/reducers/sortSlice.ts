@@ -26,11 +26,11 @@ const sortSlice = createSlice({
     name: 'sort',
     initialState,
     reducers:{
-        setActive(state, action: PayloadAction<number>){
+        setActiveSort(state, action: PayloadAction<number>){
             state.active = action.payload
         }
     }
 })
 
 export default sortSlice.reducer
-export const {setActive} = sortSlice.actions
+export const {setActiveSort} = sortSlice.actions

@@ -1,6 +1,6 @@
 import React, {FC, useEffect, useState} from 'react';
 import {useAppDispatch, useAppSelector} from "../hooks/redux";
-import {setActive} from "../redux/reducers/sortSlice";
+import {setActiveSort} from "../redux/reducers/sortSlice";
 import {fetchProducts} from "../redux/asyncActions/Products";
 
 const Sort:FC = () => {
@@ -10,10 +10,11 @@ const Sort:FC = () => {
     const sortArray = useAppSelector(state => state.sortSlice.sortArray)
 
     const activeSort = sortArray[active]
+    const activeCategory = useAppSelector(state => state.categorySlice.active)
 
     const dispatch = useAppDispatch()
     useEffect(() => {
-        dispatch(fetchProducts(activeSort.name))
+        dispatch(fetchProducts(activeSort.name, activeCategory))
     }, [active])
     return (
         <div className='sort' onClick={() => setIsOpened(!isOpened)}>
@@ -25,7 +26,7 @@ const Sort:FC = () => {
                             key={index}
                             className={activeSort.id === index ? 'active' : ''}
                             onClick={() => {
-                                dispatch(setActive(index))
+                                dispatch(setActiveSort(index))
                             }}
                         >{sort.title}</p>
                     ))}

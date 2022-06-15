@@ -5,5 +5,7 @@ export interface ICategory{
 }
 
 export interface CategoryProps{
-    title: string
+    title: string,
+    className?: string,
+    onClick: () => void
 }
